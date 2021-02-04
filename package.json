@@ -7,8 +7,12 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test start http://localhost:3000 cy:run",
+    "percy": "percy exec -- cypress run",    
+    "ci": "start-server-and-test"
   },
   "repository": {
     "type": "git",
@@ -31,5 +35,11 @@
     "semantic-ui-calendar": "0.0.8",
     "semantic-ui-css": "^2.4.1",
     "vanilla-router": "^1.2.7"
+  },
+  "devDependencies": {
+    "@percy/cypress": "^1.0.9",
+    "@percy/script": "^1.0.0",
+    "cypress": "^3.4.0",
+    "start-server-and-test": "^1.9.1"
   }
 }
